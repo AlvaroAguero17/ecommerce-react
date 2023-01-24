@@ -5,6 +5,7 @@ import {
   BannerContent,
   BannerDescription,
   BannerImg,
+  BannerShopButton,
   BannerTitle,
 } from "../../styles/theme/banner";
 
@@ -22,6 +23,7 @@ export const Banner = () => {
           magni sed culpa harum, consequatur quos animi ipsa explicabo tempora
           accusamus repellendus nobis modi nulla maiores atque minima vel. Quae.
         </BannerDescription>
+        <BannerShopButton color="primary">Shop Now</BannerShopButton>
       </BannerContent>
     </BannerContainer>
   );

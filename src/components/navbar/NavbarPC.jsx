@@ -6,8 +6,11 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import { ListItemText, ListItemButton, ListItemIcon } from "@mui/material";
 import { Actions } from "./actions";
+import { useContext } from "react";
+import { AppContext } from "../../context/AppProvider";
 
 export const NavbarPC = ({ res }) => {
+  const { setShowSearch } = useContext(AppContext);
   return (
     <NavbarContainer>
       <NavbarHeader>PetShop</NavbarHeader>
@@ -18,7 +21,7 @@ export const NavbarPC = ({ res }) => {
         <ListItemText primary="Contact us" />
         <ListItemButton>
           <ListItemIcon>
-            <SearchIcon />
+            <SearchIcon onClick={() => setShowSearch(true)} />
           </ListItemIcon>
         </ListItemButton>
       </HeaderList>

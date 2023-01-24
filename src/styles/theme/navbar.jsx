@@ -1,4 +1,4 @@
-import { List, Typography } from "@mui/material";
+import { Button, List, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Box } from "@mui/system";
 
@@ -38,4 +38,11 @@ export const ActionIconsContainerMobile = styled(Box)(() => ({
 
 export const ActionIconsContainerPC = styled(Box)(() => ({
   flexGrow: 0,
+}));
+
+export const DrawerCloseButton = styled(Button)(() => ({
+  position: "absolute",
+  top: 10,
+  left: "250px",
+  zIndex: 1999,
 }));
