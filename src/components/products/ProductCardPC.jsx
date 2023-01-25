@@ -22,7 +22,7 @@ export default function ProductCardPC({ product, res }) {
         onMouseEnter={handleonMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <ProductImage src={product.image} />
+        <ProductImage src={product.images.img1} />
         {showButton && (
           <ProductAddToCart show={showButton} variant="contained">
             Add to cart

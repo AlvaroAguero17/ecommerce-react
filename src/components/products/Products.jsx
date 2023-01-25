@@ -14,47 +14,54 @@ export default function Products() {
       price: 23,
       description:
         "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo tempor incididunt ut labore et dolore magna",
-      image: "/tow.png",
+      images: {
+        img1: "/tow.png",
+        img2: "/tow.png",
+      },
     },
     {
       id: 2,
-      name: "Taste of the wild 2",
-      price: 34,
+      name: "Taste of the wild",
+      price: 23,
       description:
         "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo tempor incididunt ut labore et dolore magna",
-      image: "/tow.png",
+      images: {
+        img1: "/tow.png",
+        img2: "/tow.png",
+      },
     },
     {
       id: 3,
-      name: "Taste of the wild 3",
-      price: 25,
+      name: "Taste of the wild",
+      price: 23,
       description:
         "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo tempor incididunt ut labore et dolore magna",
-      image: "/tow.png",
+      images: {
+        img1: "/tow.png",
+        img2: "/tow.png",
+      },
     },
     {
       id: 4,
-      name: "Taste of the wild 4",
-      price: 40,
+      name: "Taste of the wild",
+      price: 23,
       description:
         "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo tempor incididunt ut labore et dolore magna",
-      image: "/tow.png",
+      images: {
+        img1: "/tow.png",
+        img2: "/tow.png",
+      },
     },
     {
       id: 5,
-      name: "Taste of the wild 5",
-      price: 30,
+      name: "Taste of the wild",
+      price: 23,
       description:
         "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo tempor incididunt ut labore et dolore magna",
-      image: "/tow.png",
-    },
-    {
-      id: 6,
-      name: "Taste of the wild 6",
-      price: 20,
-      description:
-        "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo tempor incididunt ut labore et dolore magna",
-      image: "/tow.png",
+      images: {
+        img1: "/tow.png",
+        img2: "/tow.png",
+      },
     },
   ];
   const renderProducts = products.map((product) => (
