@@ -8,17 +8,40 @@ import { ListItemText, ListItemButton, ListItemIcon } from "@mui/material";
 import { Actions } from "./actions";
 import { useContext } from "react";
 import { AppContext } from "../../context/AppProvider";
+import { Link } from "react-router-dom";
 
 export const NavbarPC = ({ res }) => {
   const { setShowSearch } = useContext(AppContext);
   return (
     <NavbarContainer>
-      <NavbarHeader>PetShop</NavbarHeader>
+      <NavbarHeader>
+        <Link to="/" className="logo">
+          PetShop
+        </Link>
+      </NavbarHeader>
+
       <HeaderList type="row">
-        <ListItemText primary="Home" />
-        <ListItemText primary="Categories" />
-        <ListItemText primary="Products" />
-        <ListItemText primary="Contact us" />
+        <ListItemText>
+          <Link to="/" className="links">
+            Home
+          </Link>
+        </ListItemText>
+
+        <ListItemText>
+          <Link to="/" className="links">
+            Categories
+          </Link>
+        </ListItemText>
+        <ListItemText>
+          <Link to="/" className="links">
+            Products
+          </Link>
+        </ListItemText>
+        <ListItemText>
+          <Link to="/" className="links">
+            Contact us
+          </Link>
+        </ListItemText>
         <ListItemButton>
           <ListItemIcon>
             <SearchIcon onClick={() => setShowSearch(true)} />

@@ -6,8 +6,12 @@ import {
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonIcon from "@mui/icons-material/Person";
 import { ListItemButton, ListItemIcon, Badge, Divider } from "@mui/material";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AppContext } from "../../context/AppProvider";
 
 export const Actions = ({ res }) => {
+  const { cart, setCart } = useContext(AppContext);
   const Component = res ? ActionIconsContainerMobile : ActionIconsContainerPC;
   return (
     <Component>
@@ -23,8 +27,10 @@ export const Actions = ({ res }) => {
               justifyContent: "center",
             }}
           >
-            <Badge badgeContent={17} color="error">
-              <ShoppingCartIcon />
+            <Badge badgeContent={1} color="error">
+              <Link to="/cart" className="links">
+                <ShoppingCartIcon />
+              </Link>
             </Badge>
           </ListItemIcon>
         </ListItemButton>

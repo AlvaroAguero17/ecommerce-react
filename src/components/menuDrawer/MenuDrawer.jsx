@@ -10,6 +10,7 @@ import { AppContext } from "../../context/AppProvider";
 import { DrawerCloseButton } from "../../styles/theme/navbar";
 import CloseIcon from "@mui/icons-material/Close";
 import { lighten } from "polished";
+import { Link } from "react-router-dom";
 
 export default function MenuDrawer() {
   const { drawerOpen, setDrawerOpen } = useContext(AppContext);
@@ -29,19 +30,35 @@ export default function MenuDrawer() {
       <Drawer open={drawerOpen}>
         <List>
           <ListItemButton>
-            <ListItemText>Home</ListItemText>
+            <ListItemText>
+              <Link to="/" className="links drawer">
+                Home
+              </Link>
+            </ListItemText>
           </ListItemButton>
           <Divider variant="middle" />
           <ListItemButton>
-            <ListItemText>Categories</ListItemText>
+            <ListItemText>
+              <Link to="/" className="links drawer">
+                Categories
+              </Link>
+            </ListItemText>
           </ListItemButton>
           <Divider variant="middle" />
           <ListItemButton>
-            <ListItemText>Products</ListItemText>
+            <ListItemText>
+              <Link to="/" className="links drawer">
+                Products
+              </Link>
+            </ListItemText>
           </ListItemButton>
           <Divider variant="middle" />
           <ListItemButton>
-            <ListItemText>Contact us</ListItemText>
+            <ListItemText>
+              <Link to="/" className="links drawer">
+                Contact us
+              </Link>
+            </ListItemText>
           </ListItemButton>
         </List>
       </Drawer>

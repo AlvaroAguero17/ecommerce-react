@@ -12,3 +12,26 @@
 .header .toolbar {
   padding: 0 10rem;
 }
+
+.card-product {
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.links {
+  cursor: pointer;
+  list-style: none;
+  text-decoration: none;
+  color: rgb(49, 49, 49);
+}
+
+.links.drawer {
+  color: rgb(236, 236, 236);
+}
+
+.logo {
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(1, 83, 94);
+}

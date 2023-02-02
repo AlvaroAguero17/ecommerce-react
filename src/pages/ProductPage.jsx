@@ -1,41 +1,66 @@
-import { Grid } from "@mui/material";
-import React from "react";
-import { useState } from "react";
-import ImageGrid from "../components/SingleProduct/ImageGrid";
-import Info from "../components/SingleProduct/Info";
+import { useState, useEffect, useContext } from "react";
+import { Button, Divider, Grid, Typography } from "@mui/material";
+import { Box } from "@mui/system";
+import { useParams } from "react-router-dom";
+
 import MainImage from "../components/SingleProduct/MainImage";
-
-const images = ["/tow.png", "/tow.png"];
-
-const product = {
-  title: "Taste of the wild",
-  description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt cum fugit quidem",
-  price: "$1200",
-  category: "Cat food",
-  stock: 10,
-};
+import { AppContext } from "../context/AppProvider";
 
 export const ProductPage = () => {
+  const { product, getProductById, loading } = useContext(AppContext);
+
   const [selectedImage, setSelectedImage] = useState(0);
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    getProductById(id);
+  }, []);
 
   return (
     <div>
-      <Grid container spacing={1} style={{ maxWidth: 1100, margin: "0 auto" }}>
-        <Grid item sm={1}>
-          <ImageGrid
-            images={images}
-            onSelect={setSelectedImage}
-            selectedImage={selectedImage}
-          />
+      {loading ? (
+        <h1>loading</h1>
+      ) : (
+        <Grid
+          container
+          spacing={1}
+          style={{ maxWidth: 1100, margin: "0 auto" }}
+        >
+          <Grid item sm={5}>
+            <MainImage
+              src={
+                "http://localhost:1337" +
+                product.data.attributes.images.data.attributes.url
+              }
+            />
+          </Grid>
+
+          <Grid item sm={6}>
+            <Grid container direction="column" style={{ height: "100%" }}>
+              <Typography variant="subtitle1">
+                {product.data.attributes.category.data.attributes.name}
+              </Typography>
+              <Divider />
+              <Box mt={2}>
+                <Typography variant="h4">
+                  {product.data.attributes.name}
+                </Typography>
+                <Typography variant="subtitle1">
+                  {product.data.attributes.description}
+                </Typography>
+
+                <Typography variant="h5">
+                  Price: {product.data.attributes.price}
+                </Typography>
+              </Box>
+              <Button variant="contained" style={{ marginTop: "5px" }}>
+                Add to cart
+              </Button>
+            </Grid>
+          </Grid>
         </Grid>
-        <Grid item sm={5}>
-          <MainImage src={images[selectedImage]} />
-        </Grid>
-        <Grid item sm={6}>
-          <Info {...product} />
-        </Grid>
-      </Grid>
+      )}
     </div>
   );
 };

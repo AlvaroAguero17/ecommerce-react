@@ -5,6 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { Actions } from "./actions";
 import { useContext } from "react";
 import { AppContext } from "../../context/AppProvider";
+import { Link } from "react-router-dom";
 
 export const NavbarMobile = ({ res }) => {
   const { setDrawerOpen, setShowSearch } = useContext(AppContext);
@@ -14,8 +15,11 @@ export const NavbarMobile = ({ res }) => {
       <IconButton onClick={() => setDrawerOpen(true)}>
         <MenuIcon />
       </IconButton>
+
       <NavbarHeader textAlign={"center"} variant="h4">
-        PetShop
+        <Link to="/" className="logo">
+          PetShop
+        </Link>
       </NavbarHeader>
       <IconButton>
         <SearchIcon onClick={() => setShowSearch(true)} />
