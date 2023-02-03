@@ -11,8 +11,14 @@ import { useContext } from "react";
 import { AppContext } from "../../context/AppProvider";
 
 export const Actions = ({ res }) => {
-  const { cart, setCart } = useContext(AppContext);
   const Component = res ? ActionIconsContainerMobile : ActionIconsContainerPC;
+  const { items } = useContext(AppContext);
+
+  const productsTotal = items.reduce(
+    (sum, product) => sum + product.quantity,
+    0
+  );
+
   return (
     <Component>
       <HeaderList type="row">
@@ -27,7 +33,7 @@ export const Actions = ({ res }) => {
               justifyContent: "center",
             }}
           >
-            <Badge badgeContent={1} color="error">
+            <Badge badgeContent={productsTotal} color="error">
               <Link to="/cart" className="links">
                 <ShoppingCartIcon />
               </Link>

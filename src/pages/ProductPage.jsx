@@ -4,19 +4,21 @@ import { Box } from "@mui/system";
 import { useParams } from "react-router-dom";
 
 import MainImage from "../components/SingleProduct/MainImage";
-import { AppContext } from "../context/AppProvider";
+
+import { getProductById } from "../hooks/useFetchData";
 
 export const ProductPage = () => {
-  const { product, getProductById, loading } = useContext(AppContext);
-
-  const [selectedImage, setSelectedImage] = useState(0);
+  const [product, setProduct] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const { id } = useParams();
 
   useEffect(() => {
-    getProductById(id);
+    getProductById(id).then((data) => {
+      setProduct(data);
+      setLoading(false);
+    });
   }, []);
-
   return (
     <div>
       {loading ? (

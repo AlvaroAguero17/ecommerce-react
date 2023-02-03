@@ -26,21 +26,9 @@ export const ProductImage = styled("img")(({ src, theme }) => ({
   },
 }));
 
-export const ProductAddToCart = styled(Button, {
-  shouldForwardProp: (prop) => prop !== "show",
-})(({ show, theme }) => ({
+export const ProductAddToCart = styled(Button)(() => ({
   width: "120px",
   fontSize: "12px",
-  [theme.breakpoints.up("md")]: {
-    position: "absolute",
-    bottom: "2%",
-    width: "300px",
-    padding: "10px 5px",
-    animation:
-      show &&
-      `${slideInBottom} 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both `,
-  },
-
   background: "#A8D7C3",
   opacity: 0.9,
 }));

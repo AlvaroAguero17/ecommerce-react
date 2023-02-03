@@ -21,3 +21,12 @@ export default function useFetchData(url) {
 
   return { loading, result, error };
 }
+
+export const getProductById = async (id) => {
+  const res = await fetch(
+    `http://localhost:1337/api/products/${id}?populate=*`
+  );
+  const data = await res.json();
+
+  return data;
+};

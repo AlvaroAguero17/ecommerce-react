@@ -9,38 +9,30 @@ import {
 import ProductInfo from "./ProductInfo";
 
 export default function ProductCardPC({ product, res }) {
-  const {} = useContext(AppContext);
+  const { addOneToCart, getProductQuantity, items } = useContext(AppContext);
 
-  const [showButton, setShowButton] = useState(false);
-
-  const handleonMouseEnter = () => {
-    setShowButton(true);
-  };
-  const handleMouseLeave = () => {
-    setShowButton(false);
-  };
+  const productQuantity = getProductQuantity(product.id);
 
   return (
     <>
       <Link to={`product/${product.id}`} className="card-product">
-        <Product
-          onMouseEnter={handleonMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
+        <Product>
           <ProductImage
             src={
               "http://localhost:1337" +
               product.attributes.images.data.attributes.formats.small.url
             }
           />
-          {showButton && (
-            <ProductAddToCart show={showButton} variant="contained">
-              Add to cart
-            </ProductAddToCart>
-          )}
+
           <ProductInfo product={product} res={res} />
         </Product>
       </Link>
+      <ProductAddToCart
+        onClick={() => addOneToCart(product.id)}
+        variant="contained"
+      >
+        Add to cart
+      </ProductAddToCart>
     </>
   );
 }
