@@ -61,26 +61,26 @@ export const AppProvider = ({ children }) => {
     );
   }
 
-  async function getTotal() {
-    let total = 0;
-    // await cartProducts.map((cartProduct) => {
-    //   getProductById(cartProduct.id).then((productData) => {
-    //     total += productData.data.attributes.price * cartProduct.quantity;
-    //     console.log("dentro del map", total);
-    //   });
-    //   console.log("fuera", total);
-    // });
-    // return total;
+  // async function getTotal() {
+  //   let total = 0;
+  //   // await cartProducts.map((cartProduct) => {
+  //   //   getProductById(cartProduct.id).then((productData) => {
+  //   //     total += productData.data.attributes.price * cartProduct.quantity;
+  //   //     console.log("dentro del map", total);
+  //   //   });
+  //   //   console.log("fuera", total);
+  //   // });
+  //   // return total;
 
-    for (let i = 0; i < cartProducts.length; i++) {
-      await getProductById(cartProducts[i].id).then((productData) => {
-        total += productData.data.attributes.price * cartProducts[i].quantity;
-        console.log("dentro del for", total);
-      });
-    }
-    console.log("fuera del for", total);
-    return total;
-  }
+  //   for (let i = 0; i < cartProducts.length; i++) {
+  //     await getProductById(cartProducts[i].id).then((productData) => {
+  //       total += productData.data.attributes.price * cartProducts[i].quantity;
+  //       console.log("dentro del for", total);
+  //     });
+  //   }
+  //   console.log("fuera del for", total);
+  //   return total;
+  // }
 
   const value = {
     drawerOpen,
@@ -91,7 +91,7 @@ export const AppProvider = ({ children }) => {
     deleteFromCart,
     addOneToCart,
     getProductQuantity,
-    getTotal,
+    // getTotal,
     items: cartProducts,
   };
 
